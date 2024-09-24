@@ -12,6 +12,15 @@
         text-transform: uppercase;
     }
 
+    .navLinkDesktop {
+        font-family: "Rubik", sans-serif;
+        font-size: 13px;
+        line-height: 17px;
+        letter-spacing: 1.5px;
+        color: #242a45;
+        text-transform: uppercase;
+    }
+
     .titleMobile {
         font-family: "Rubik", sans-serif;
         font-size: 30px;
