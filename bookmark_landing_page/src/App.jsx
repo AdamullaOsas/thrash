@@ -3,6 +3,7 @@ import MobileNavbar from "./components/MobileNavbar";
 import BookmarkManager from "./components/BookmarkManager";
 import Navbar from "./components/Navbar";
 import Features from "./components/Features";
+import Extension from "./components/Extension";
 const App = () => {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -23,6 +24,7 @@ const App = () => {
             {isMobile ? <MobileNavbar /> : <Navbar />}
             <BookmarkManager />
             <Features />
+            <Extension />
         </div>
     );
 };

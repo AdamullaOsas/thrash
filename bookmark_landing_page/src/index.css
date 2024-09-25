@@ -89,4 +89,19 @@
         opacity: 0.75;
         letter-spacing: 0.53px;
     }
+    .cardTitle {
+        font-family: "Rubik", sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        letter-spacing: 0.25px;
+        color: #242a45;
+    }
+
+    .cardPara {
+        font-family: "Rubik", sans-serif;
+        font-size: 15px;
+        line-height: 28px;
+        color: #242a45;
+        opacity: 0.5;
+    }
 }
