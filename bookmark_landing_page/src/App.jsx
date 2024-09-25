@@ -4,6 +4,7 @@ import BookmarkManager from "./components/BookmarkManager";
 import Navbar from "./components/Navbar";
 import Features from "./components/Features";
 import Extension from "./components/Extension";
+import Accordion from "./components/Accordion";
 const App = () => {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -25,6 +26,7 @@ const App = () => {
             <BookmarkManager />
             <Features />
             <Extension />
+            <Accordion />
         </div>
     );
 };

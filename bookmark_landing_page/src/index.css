@@ -104,4 +104,11 @@
         color: #242a45;
         opacity: 0.5;
     }
+
+    .faQuestion {
+        font-family: "Rubik", sans-serif;
+        font-size: 15px;
+        line-height: 32px;
+        color: #242a45;
+    }
 }

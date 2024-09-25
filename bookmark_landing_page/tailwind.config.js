@@ -9,6 +9,9 @@ module.exports = {
                 navy: "#242A45",
                 grey: "#9194A2",
             },
+            screens: {
+                box: "920px",
+            },
         },
     },
     plugins: [],
