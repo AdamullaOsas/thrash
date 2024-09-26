@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar";
 import Features from "./components/Features";
 import Extension from "./components/Extension";
 import Accordion from "./components/Accordion";
+
+import Contact from "./components/Contact";
 const App = () => {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -27,6 +29,7 @@ const App = () => {
             <Features />
             <Extension />
             <Accordion />
+            <Contact />
         </div>
     );
 };

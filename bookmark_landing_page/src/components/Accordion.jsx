@@ -21,15 +21,15 @@ const Accordion = () => {
         },
     ];
     return (
-        <div className="mt-[140px] mx-8 flex flex-col items-center">
-            <div>
-                <h1>Frequently Asked Questions</h1>
-                <p>
+        <div className="mt-[140px] mx-8 flex flex-col items-center text-center">
+            <div className="max-w-[540px]">
+                <h1 className="featuresTitle">Frequently Asked Questions</h1>
+                <p className="paraMobile leading-[25px]">
                     Here are some of our FAQs. If you have any other questions
                     you'd like answered please feel free to email us.
                 </p>
             </div>
-            <div>
+            <div className="w-full max-w-[540px] mt-14">
                 {faqs.map((faq, index) => (
                     <Piece
                         key={index}
@@ -38,6 +38,9 @@ const Accordion = () => {
                     />
                 ))}
             </div>
+            <button className="h-12 bg-blue text-white buttonText rounded-[5px] min-w-[114px] mt-[54px] mx-auto md:mx-0 max-w-[114px]">
+                More Info
+            </button>
         </div>
     );
 };
@@ -55,10 +58,19 @@ const Piece = ({ question, answer }) => {
                 <img
                     src={arrow}
                     alt="toggleIcon"
-                    className="w-[16px] h-[10px]"
+                    className={`w-[16px] h-[10px] ${
+                        isOpen ? "transform rotate-180" : ""
+                    }`}
+                    style={
+                        isOpen
+                            ? {
+                                  filter: "brightness(0) saturate(100%) invert(47%) sepia(15%) saturate(2000%) hue-rotate(312deg) brightness(101%) contrast(115%)",
+                              }
+                            : {}
+                    }
                 />
             </div>
-            {isOpen && <p className="mt-4">{answer}</p>}
+            {isOpen && <p className="mt-4 text-start faAnswer">{answer}</p>}
         </div>
     );
 };

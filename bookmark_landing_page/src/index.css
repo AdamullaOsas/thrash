@@ -111,4 +111,30 @@
         line-height: 32px;
         color: #242a45;
     }
+
+    .faAnswer {
+        font-family: "Rubik", sans-serif;
+        font-size: 16px;
+        line-height: 36px;
+        color: #242a45;
+        opacity: 0.5;
+    }
+
+    .contactPara {
+        font-family: "Rubik", sans-serif;
+        font-size: 12px;
+        line-height: 40px;
+        color: white;
+        letter-spacing: 4.62px;
+        font-weight: 500;
+    }
+
+    .contactTitle {
+        font-family: "Rubik", sans-serif;
+        font-size: 24px;
+        line-height: 28px;
+        font-weight: 500;
+        color: white;
+        letter-spacing: -0.08px;
+    }
 }
