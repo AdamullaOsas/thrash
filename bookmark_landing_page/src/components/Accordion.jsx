@@ -51,10 +51,10 @@ const Piece = ({ question, answer }) => {
     return (
         <div className="py-4 border-b border-navy border-opacity-15 w-full">
             <div
-                className="flex justify-between items-center cursor-pointer w-full"
+                className="flex justify-between items-center cursor-pointer w-full group"
                 onClick={() => setIsOpen(!isOpen)}
             >
-                <p className="faQuestion">{question}</p>
+                <p className="faQuestion group-hover:text-red">{question}</p>
                 <img
                     src={arrow}
                     alt="toggleIcon"

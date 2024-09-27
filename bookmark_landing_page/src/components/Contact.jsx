@@ -16,25 +16,25 @@ const Contact = () => {
     };
 
     return (
-        <div className="h-[360px] bg-blue mt-[123px] w-full px-8">
-            <div className="flex flex-col text-center mt-[60px]">
+        <div className="h-[360px] bg-blue mt-[123px] w-full px-8 flex flex-col">
+            <div className="flex flex-col text-center mt-[60px] max-w-[450px] self-center">
                 <p className="contactPara">35,000+ ALREADY JOINED</p>
-                <h1 className="contactTitle">
+                <h1 className="contactTitle md:contactTitleDektop">
                     Stay up-to-date with what we're doing
                 </h1>
             </div>
             <form
                 noValidate
-                className="flex flex-col gap-4 mt-8"
+                className="flex flex-col gap-4 mt-8 md:flex-row self-center"
                 onSubmit={validateEmail}
             >
-                <div className="relative">
+                <div className="relative ">
                     <input
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="Enter your email address"
-                        className={`w-full min-h-12 px-[20px] py-[10px] rounded-[5px] outline-none ${
+                        className={`w-[300px] min-h-12 px-[20px] py-[10px] rounded-[5px] outline-none ${
                             emailError
                                 ? "border-[2px] border-red border-b-[24px]"
                                 : ""
@@ -57,7 +57,7 @@ const Contact = () => {
                 </div>
 
                 <button
-                    className="w-full bg-red text-white buttonText tracking-[0.25px] h-12 rounded-[5px]"
+                    className="w-full md:w-[126px] bg-red border-[2px] border-red hover:bg-white hover:text-red text-white buttonText tracking-[0.25px] h-12 rounded-[5px]"
                     type="submit"
                 >
                     Contact Us

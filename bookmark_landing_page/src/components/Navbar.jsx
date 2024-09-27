@@ -1,9 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 import logo from "../images/logo-bookmark.svg";
-import logoOpen from "../images/logo-bookmark-open.svg";
-
-import close from "../images/icon-close.svg";
 
 const Navbar = () => {
     const links = ["Features", "Pricing", "Contact"];
@@ -15,11 +12,15 @@ const Navbar = () => {
             <div className="flex items-center">
                 <div className="flex gap-12 items-center">
                     {links.map((link) => (
-                        <a key={link} href="/" className="navLinkDesktop ">
+                        <a
+                            key={link}
+                            href="/"
+                            className="navLinkDesktop hover:cursor-pointer hover:text-red"
+                        >
                             {link}
                         </a>
                     ))}
-                    <button className="w-[111px] h-[40px] bg-red rounded-[5px] navLinkDesktop text-white font-medium flex items-center justify-center">
+                    <button className="w-[107px] h-[38px] bg-red border-[2px] hover:bg-white hover:text-red border-red rounded-[5px] navLinkDesktop text-white font-medium flex items-center justify-center">
                         Login
                     </button>
                 </div>

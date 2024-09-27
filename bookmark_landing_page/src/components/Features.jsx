@@ -47,7 +47,7 @@ const Features = () => {
                     {features.map((feature) => (
                         <p
                             key={feature.name}
-                            className={`md:flex-1 relative flex flex-col items-center justify-center border-t-[1px] md:border-t-0 md:border-b-[1px] h-[60px] border-[#495DCF] border-opacity-20 featuresOptiones ${
+                            className={`md:flex-1 relative flex flex-col items-center justify-center border-t-[1px] md:border-t-0 md:border-b-[1px] h-[60px] border-[#495DCF] border-opacity-20 featuresOptiones hover:text-red ${
                                 feature.name === "Easy Sharing"
                                     ? "border-b-[1px]"
                                     : ""

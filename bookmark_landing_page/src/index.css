@@ -138,6 +138,15 @@
         letter-spacing: -0.08px;
     }
 
+    .contactTitleDektop {
+        font-family: "Rubik", sans-serif;
+        font-size: 32px;
+        line-height: 40px;
+        font-weight: 500;
+        color: white;
+        letter-spacing: -0.1px;
+    }
+
     .errorMessage {
         font-family: "Rubik", sans-serif;
         font-size: 10px;
@@ -148,10 +157,15 @@
 
     .footerLink {
         font-family: "Rubik", sans-serif;
-        font-size: 15px;
+        font-size: 13px;
         line-height: 17px;
         color: #ffffff;
         text-transform: uppercase;
         letter-spacing: 1.73px;
+    }
+
+    .iconHover:hover {
+        filter: brightness(0) saturate(100%) invert(32%) sepia(80%)
+            saturate(995%) hue-rotate(325deg) brightness(132%) contrast(96%);
     }
 }

@@ -57,7 +57,7 @@ const Card = ({ image, title, para, additionalClass }) => {
             <img src={dots} alt="dots" className="mt-8" />
 
             <div className="w-full p-6">
-                <button className="w-full h-12 bg-blue buttonText text-white rounded-[5px]">
+                <button className="w-full h-11 bg-blue buttonText text-white rounded-[5px] border-[2px] border-blue hover:bg-white hover:text-blue">
                     Add & Install Extension
                 </button>
             </div>

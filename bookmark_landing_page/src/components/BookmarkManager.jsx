@@ -22,10 +22,10 @@ const BookmarkManager = () => {
                     instantly. Try it for free.
                 </p>
                 <div className="flex gap-3 mt-8 items-center justify-center lg:justify-start">
-                    <button className="flex-1 h-12 bg-blue text-white buttonText rounded-[5px] max-w-[166px]">
+                    <button className="flex-1 h-11 bg-blue text-white buttonText rounded-[5px] max-w-[166px] border-[2px] border-blue hover:bg-white hover:text-blue">
                         Get it on Chrome
                     </button>
-                    <button className="flex-1 h-12 bg-[#F7F7F7] text-navy buttonText rounded-[5px] max-w-[166px]">
+                    <button className="flex-1 h-11 bg-[#F7F7F7] text-navy buttonText rounded-[5px] max-w-[166px] border-[2px] border-[#F7F7F7] hover:bg-white hover:text-navy hover:border-navy">
                         Get it on Firefox
                     </button>
                 </div>
