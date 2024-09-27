@@ -8,7 +8,7 @@ const Blob = () => {
                 height: "clamp(203px, 20vw, 352px)",
                 borderRadius: "316px",
             }}
-            className="max-w-screen bg-blue"
+            className="bg-blue overflow-hidden"
         ></div>
     );
 };

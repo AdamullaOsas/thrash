@@ -137,4 +137,21 @@
         color: white;
         letter-spacing: -0.08px;
     }
+
+    .errorMessage {
+        font-family: "Rubik", sans-serif;
+        font-size: 10px;
+        letter-spacing: 0.25px;
+        font-weight: 500;
+        font-style: italic;
+    }
+
+    .footerLink {
+        font-family: "Rubik", sans-serif;
+        font-size: 15px;
+        line-height: 17px;
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 1.73px;
+    }
 }

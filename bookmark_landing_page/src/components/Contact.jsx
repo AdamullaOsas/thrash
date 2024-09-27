@@ -34,8 +34,10 @@ const Contact = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="Enter your email address"
-                        className={`w-full h-12 px-[20px] py-[10px] rounded-[5px] outline-none ${
-                            emailError ? "border border-red-500" : ""
+                        className={`w-full min-h-12 px-[20px] py-[10px] rounded-[5px] outline-none ${
+                            emailError
+                                ? "border-[2px] border-red border-b-[24px]"
+                                : ""
                         }`}
                     />
 
@@ -43,12 +45,12 @@ const Contact = () => {
                         <img
                             src={error}
                             alt="Error"
-                            className="absolute right-3 top-1/2 transform -translate-y-[110%]"
+                            className="absolute right-3 top-1/2 transform -translate-y-[100%]"
                         />
                     )}
 
                     {emailError && (
-                        <p className="text-white text-sm mt-1">
+                        <p className="absolute left-3 top-1/2 transform translate-y-[100%] errorMessage text-white">
                             Whoops, make sure it's an email
                         </p>
                     )}

@@ -5,6 +5,8 @@ import logoOpen from "../images/logo-bookmark-open.svg";
 import burgir from "../images/icon-hamburger.svg";
 import close from "../images/icon-close.svg";
 
+import facebook from "../images/icon-facebook.svg";
+import twitter from "../images/icon-twitter.svg";
 const MobileNavbar = () => {
     const [open, setOpen] = useState(false);
     const links = ["Features", "Pricing", "Contact"];
@@ -50,6 +52,14 @@ const MobileNavbar = () => {
                     <button className="mt-6 h-12 rounded-[5px] border-[2px] navLink font-medium text-white border-white">
                         Login
                     </button>
+                    <div className="flex justify-center space-x-10 absolute bottom-10 left-0 right-0">
+                        <img
+                            src={facebook}
+                            alt="facebook"
+                            className="w-6 h-6"
+                        />
+                        <img src={twitter} alt="twitter" className="w-6 h-6" />
+                    </div>
                 </div>
             </div>
         </div>
