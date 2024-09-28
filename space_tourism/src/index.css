@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .textPreset1 {
+        font-family: "Bellefair", serif;
+        font-size: 144px;
+        letter-spacing: 0px;
+    }
+
+    .textPreset2 {
+        font-family: "Bellefair", serif;
+        font-size: 100px;
+        letter-spacing: 0px;
+    }
+
+    .textPreset3 {
+        font-family: "Bellefair", serif;
+        font-size: 56px;
+        letter-spacing: 0px;
+    }
+
+    .textPreset4 {
+        font-family: "Bellefair", serif;
+        font-size: 32px;
+        letter-spacing: 0px;
+    }
+
+    .textPreset5 {
+        font-family: "Barlow Condensed", serif;
+        font-size: 28px;
+        letter-spacing: 4px;
+    }
+
+    .textPreset6 {
+        font-family: "Bellefair", serif;
+        font-size: 28px;
+        letter-spacing: 0px;
+    }
+
+    .textPreset7 {
+        font-family: "Barlow Condensed", serif;
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+
+    .textPreset8 {
+        font-family: "Barlow Condensed", serif;
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+
+    .textPreset9 {
+        font-family: "Bellefair", serif;
+        font-size: 18px;
+        letter-spacing: 0px;
+        line-height: 1.8;
+    }
+}
