@@ -35,11 +35,18 @@
         letter-spacing: 0px;
     }
 
+    .textPreset3Mobile {
+        font-family: "Bellefair", serif;
+        font-size: 24px;
+        letter-spacing: 0px;
+    }
+
     .textPreset4 {
         font-family: "Bellefair", serif;
         font-size: 32px;
         letter-spacing: 0px;
     }
+
     .textPreset4Mobile {
         font-family: "Bellefair", serif;
         font-size: 18px;
@@ -57,6 +64,7 @@
         font-size: 28px;
         letter-spacing: 0px;
     }
+
     .textPreset6Mobile {
         font-family: "Barlow Condensed", serif;
         font: size 16px;
