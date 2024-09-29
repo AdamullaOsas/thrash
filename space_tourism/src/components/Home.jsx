@@ -19,14 +19,12 @@ const Home = () => {
 
     return (
         <div
-            className="min-h-screen w-full bg-center bg-cover text-white"
+            className="min-h-screen w-full bg-center text-white p-6"
             style={{
                 backgroundImage: `url(${backgroundImage})`,
                 backgroundSize: "cover",
             }}
-        >
-            Home
-        </div>
+        ></div>
     );
 };
 

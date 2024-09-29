@@ -81,7 +81,7 @@ const AppContent = () => {
 
     return (
         <div
-            className="min-h-screen w-full bg-center bg-cover text-white"
+            className="relative h-screen w-full bg-center text-white overflow-hidden"
             style={{
                 backgroundImage: backgroundImage,
                 backgroundSize: "cover",
