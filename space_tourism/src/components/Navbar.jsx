@@ -72,6 +72,7 @@ const Navbar = () => {
                                     to={link.ref}
                                     className="flex text-white h-full items-center gap-3"
                                     key={link.ref}
+                                    onClick={() => setIsMenuOpen(false)}
                                 >
                                     <span className="textPreset8 font-bold">
                                         {link.number}

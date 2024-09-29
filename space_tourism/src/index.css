@@ -7,6 +7,7 @@
         font-family: "Bellefair", serif;
         font-size: 144px;
         letter-spacing: 0px;
+        line-height: auto;
     }
 
     .textPreset1Mobile {
@@ -21,6 +22,13 @@
         letter-spacing: 0px;
     }
 
+    .textPreset2Mobile {
+        font-family: "Bellefair", serif;
+        font-size: 56px;
+        letter-spacing: 0px;
+        text-transform: uppercase;
+    }
+
     .textPreset3 {
         font-family: "Bellefair", serif;
         font-size: 56px;
@@ -30,6 +38,11 @@
     .textPreset4 {
         font-family: "Bellefair", serif;
         font-size: 32px;
+        letter-spacing: 0px;
+    }
+    .textPreset4Mobile {
+        font-family: "Bellefair", serif;
+        font-size: 18px;
         letter-spacing: 0px;
     }
 
@@ -62,8 +75,14 @@
         letter-spacing: 2px;
     }
 
+    .textPreset8Mobile {
+        font-family: "Barlow Condensed", serif;
+        font-size: 14px;
+        letter-spacing: 15%;
+    }
+
     .textPreset9 {
-        font-family: "Bellefair", serif;
+        font-family: "Barlow", serif;
         font-size: 18px;
         letter-spacing: 0px;
         line-height: 1.8;

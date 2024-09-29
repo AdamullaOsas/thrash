@@ -9,6 +9,11 @@ module.exports = {
                     900: "#0B0D17",
                 },
             },
+            fontFamily: {
+                BarlowC: ["Barlow Condensed", "sans-serif"],
+                Bellefair: ["Bellefair", "serif"],
+                monoBarlow: ["Barlow", "monospace"],
+            },
         },
     },
     plugins: [],

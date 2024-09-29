@@ -1,31 +1,9 @@
 import React from "react";
-import useWindowWidth from "../hooks/useWindowWidth";
-
-import bgMobileHome from "../assets/home/background-home-mobile.jpg";
-import bgTabletHome from "../assets/home/background-home-tablet.jpg";
-import bgDesktopHome from "../assets/home/background-home-desktop.jpg";
 
 const Home = () => {
-    const width = useWindowWidth();
-
-    const isMedium = width >= 768 && width < 1280;
-    const isLarge = width >= 1280;
-
-    const backgroundImage = isLarge
-        ? bgDesktopHome
-        : isMedium
-        ? bgTabletHome
-        : bgMobileHome;
-
     return (
-        <div
-            className="min-h-screen w-full bg-center p-6 flex flex-col items-center"
-            style={{
-                backgroundImage: `url(${backgroundImage})`,
-                backgroundSize: "cover",
-            }}
-        >
-            <div className="flex flex-col gap-6 items-center text-center max-w-[512px] xl:max-w-[540px]">
+        <div className="min-h-screen w-full p-6 pt-[112px] md:pt-[126px] xl:py-[128px] xl:px-0 flex flex-col items-center xl:items-end xl:flex-row max-w-[1110px] xl:mx-auto xl:gap-[300px]">
+            <div className="flex flex-col  items-center xl:items-start text-center xl:text-start max-w-[512px] xl:max-w-[540px]">
                 <p className="textPreset6Mobile text-blue-300 md:textPreset5">
                     SO, YOU WANT TO TRAVEL TO
                 </p>
@@ -38,6 +16,11 @@ const Home = () => {
                     edge of it. Well sit back, and relax because we'll give you
                     a truly out of this world experience!
                 </p>
+            </div>
+            <div className="flex justify-center items-center flex-1 md:mt-0">
+                <button className="size-[144px] md:size-[272px] rounded-full bg-white text-blue-900 textPreset4Mobile md:textPreset4 md:mt-[50px] xl:mt-0">
+                    EXPLORE
+                </button>
             </div>
         </div>
     );

@@ -12,7 +12,6 @@ import Destination from "./components/Destination";
 import Crew from "./components/Crew";
 import Technology from "./components/Technology";
 
-// Import your background images
 import bgHomeMobile from "./assets/home/background-home-mobile.jpg";
 import bgHomeTablet from "./assets/home/background-home-tablet.jpg";
 import bgHomeDesktop from "./assets/home/background-home-desktop.jpg";
@@ -81,14 +80,14 @@ const AppContent = () => {
 
     return (
         <div
-            className="relative h-screen w-full bg-center text-white overflow-hidden"
+            className="relative h-screen w-full bg-center text-white flex flex-col"
             style={{
                 backgroundImage: backgroundImage,
                 backgroundSize: "cover",
             }}
         >
             <Navbar />
-            <div className="pt-[88px] md:pt-[96px] xl:pt-[136px]">
+            <div className="flex-grow overflow-auto">
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/destination" element={<Destination />} />
