@@ -42,7 +42,7 @@ const Crew = () => {
                             className={`size-[10px] xl:size-[15px] rounded-full bg-white ${
                                 active === index
                                     ? "bg-opacity-100"
-                                    : "bg-opacity-[17.44%]"
+                                    : "bg-opacity-[17.44%] hover:bg-opacity-50"
                             }`}
                         ></button>
                     ))}

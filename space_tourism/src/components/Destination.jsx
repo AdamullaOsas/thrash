@@ -26,13 +26,21 @@ const Destination = () => {
                 <img
                     src={images[active]}
                     alt="Destination"
-                    className="size-[150px] md:size-[300px] xl:size-[480px] mt-[50px] md:mt-[66px] xd:mt-0"
+                    className="size-[150px] md:size-[300px] xl:size-[480px] mt-[50px] md:mt-[66px] xl:mt-0"
                 />
                 <div className="flex flex-col xl:mt-[133px]">
                     <div className="flex flex-col items-center xl:items-start pb-6 xl:pb-10 border-b-[1px] border-blue-300 xl:max-w-[445px]">
-                        <div className="flex gap-8 mt-[58px] md:mt-[74px] xl:mt-0 textPreset8Mobile md:textPreset8 text-blue-300">
+                        <div className="flex gap-8 mt-[58px] md:mt-[74px] xl:mt-0 textPreset8Mobile md:textPreset8">
                             {links.map((link, index) => (
-                                <button onClick={() => setActive(index)}>
+                                <button
+                                    key={index}
+                                    onClick={() => setActive(index)}
+                                    className={`text-blue-300 pb-2 ${
+                                        active === index
+                                            ? "border-b-[3px] border-white text-white"
+                                            : "hover:border-b-[3px] hover:border-white hover:border-opacity-50"
+                                    }`}
+                                >
                                     {link}
                                 </button>
                             ))}

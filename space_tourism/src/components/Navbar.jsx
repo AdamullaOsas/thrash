@@ -32,11 +32,10 @@ const Navbar = () => {
     ];
 
     const isSmall = width < 768;
-    // const isMedium = width >= 768 && width < 1280;
     const isLarge = width >= 1280;
 
     return (
-        <div className="absolute top-0 left-0 h-[88px] md:h-[96px] w-full flex items-center justify-between px-6 md:pl-10 md:pr-0 xl:mt-10">
+        <div className="fixed top-0 left-0 h-[88px] md:h-[96px] w-full flex items-center justify-between px-6 md:pl-10 md:pr-0 xl:mt-10 z-50">
             <div className="flex items-center relative">
                 <img
                     src={logo}
@@ -48,6 +47,7 @@ const Navbar = () => {
                 )}
             </div>
 
+            {/* Mobile Menu */}
             <div className={`${isSmall ? "block" : "hidden"}`}>
                 <img
                     src={hamburger}
@@ -57,7 +57,7 @@ const Navbar = () => {
                 />
 
                 {isMenuOpen && (
-                    <div className="fixed h-full w-[70%] top-0 right-0 bg-[#0B0D17] bg-opacity-15 backdrop-blur-xl flex flex-col gap-12">
+                    <div className="fixed h-full w-[70%] top-0 right-0 bg-[#0B0D17] bg-opacity-15 backdrop-blur-xl flex flex-col gap-12 z-50">
                         <div className="self-end">
                             <img
                                 src={close}
@@ -66,13 +66,19 @@ const Navbar = () => {
                                 onClick={() => setIsMenuOpen(false)}
                             />
                         </div>
-                        <div className="flex flex-col ml-8 gap-8">
+                        <div className="flex flex-col ml-8 gap-8 h-[20px]">
                             {links.map((link) => (
                                 <NavLink
                                     to={link.ref}
-                                    className="flex text-white h-full items-center gap-3"
                                     key={link.ref}
                                     onClick={() => setIsMenuOpen(false)}
+                                    className={({ isActive }) =>
+                                        `flex w-full items-center gap-3 ${
+                                            isActive
+                                                ? "border-r-[3px] border-white h-full"
+                                                : "hover:border-r-[3px] hover:border-white hover:border-opacity-50 h-full"
+                                        }`
+                                    }
                                 >
                                     <span className="textPreset8 font-bold">
                                         {link.number}
@@ -85,6 +91,7 @@ const Navbar = () => {
                 )}
             </div>
 
+            {/* Desktop Menu */}
             <div
                 className={`${
                     isSmall ? "hidden" : "block"
@@ -93,8 +100,14 @@ const Navbar = () => {
                 {links.map((link) => (
                     <NavLink
                         to={link.ref}
-                        className="flex text-white h-full items-center gap-3"
                         key={link.ref}
+                        className={({ isActive }) =>
+                            `flex h-full items-center gap-3 ${
+                                isActive
+                                    ? "border-b-[3px] border-white"
+                                    : "hover:border-b-[3px] hover:border-white hover:border-opacity-50"
+                            }`
+                        }
                     >
                         <span className="textPreset8 font-bold">
                             {link.number}

@@ -47,7 +47,7 @@ const Technology = () => {
                                 className={`size-10 md:size-14 xl:size-20 flex items-center justify-center rounded-full border-[1px] border-white border-opacity-25 textPreset4Mobile md:text-[24px] ${
                                     active === index
                                         ? "bg-white text-blue-900"
-                                        : ""
+                                        : "hover:border-white"
                                 }`}
                             >
                                 {index + 1}

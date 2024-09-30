@@ -3,7 +3,7 @@ import React from "react";
 const Home = () => {
     return (
         <div className="min-h-screen w-full p-6 pt-[112px] md:pt-[126px] xl:py-[128px] xl:px-0 flex flex-col items-center xl:items-end xl:flex-row max-w-[1110px] xl:mx-auto xl:gap-[300px]">
-            <div className="flex flex-col  items-center xl:items-start text-center xl:text-start max-w-[512px] xl:max-w-[540px]">
+            <div className="flex flex-col items-center xl:items-start text-center xl:text-start max-w-[512px] xl:max-w-[540px]">
                 <p className="textPreset6Mobile text-blue-300 md:textPreset5">
                     SO, YOU WANT TO TRAVEL TO
                 </p>
@@ -17,8 +17,8 @@ const Home = () => {
                     a truly out of this world experience!
                 </p>
             </div>
-            <div className="flex justify-center items-center flex-1 md:mt-0">
-                <button className="size-[144px] md:size-[272px] rounded-full bg-white text-blue-900 textPreset4Mobile md:textPreset4 md:mt-[50px] xl:mt-0">
+            <div className="flex justify-center items-center flex-1 xl:flex-none md:mt-0 ">
+                <button className="relative before:content-[''] before:absolute before:top-[-75px] before:left-[-75px] before:w-[calc(100%+150px)] before:h-[calc(100%+150px)] before:bg-white before:rounded-full before:opacity-0 hover:before:opacity-10 before:transition-opacity before:duration-300 size-[144px] md:size-[272px] rounded-full bg-white text-blue-900 textPreset4Mobile md:textPreset4 md:mt-[50px] xl:mt-0">
                     EXPLORE
                 </button>
             </div>
