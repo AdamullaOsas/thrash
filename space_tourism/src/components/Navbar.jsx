@@ -47,7 +47,6 @@ const Navbar = () => {
                 )}
             </div>
 
-            {/* Mobile Menu */}
             <div className={`${isSmall ? "block" : "hidden"}`}>
                 <img
                     src={hamburger}
@@ -91,7 +90,6 @@ const Navbar = () => {
                 )}
             </div>
 
-            {/* Desktop Menu */}
             <div
                 className={`${
                     isSmall ? "hidden" : "block"
