@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .slideShow {
+        font-family: "Libre Baskerville", serif;
+        font-size: 9px;
+        color: #7d7d7d;
+        letter-spacing: 1.93px;
+        font-weight: bold;
+    }
+
+    .slideShowTablet {
+        font-family: "Libre Baskerville", serif;
+        font-size: 12px;
+        color: #7d7d7d;
+        letter-spacing: 2.57px;
+        font-weight: bold;
+    }
+
+    .homeTitle {
+        font-family: "Libre Baskerville", serif;
+        font-size: 24px;
+        color: white;
+        letter-spacing: 0px;
+        font-weight: bold;
+    }
+    .homeAuthor {
+        font-family: "Libre Baskerville", serif;
+        font-size: 13px;
+        color: white;
+        letter-spacing: 0px;
+        opacity: 75%;
+    }
+}
