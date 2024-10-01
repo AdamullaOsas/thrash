@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import logo from "../shared/logo.svg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Navbar = () => {
     const navigate = useNavigate();
+    const location = useLocation();
 
-    const [slideShow, setSlideShow] = useState(false);
+    const isSlidesPage = location.pathname === "/Slides";
 
     const handleSlideShow = () => {
-        if (slideShow) {
-            setSlideShow(false);
+        if (isSlidesPage) {
             navigate("/");
         } else {
-            setSlideShow(true);
-            navigate("/Slides");
+            navigate("/Slides", { state: { startIndex: 0 } });
         }
     };
 
@@ -24,7 +23,7 @@ const Navbar = () => {
                 className="slideShow md:slideShowTablet"
                 onClick={handleSlideShow}
             >
-                {slideShow ? "STOP SLIDESHOW" : "START SLIDESHOW"}
+                {isSlidesPage ? "STOP SLIDESHOW" : "START SLIDESHOW"}
             </button>
         </div>
     );
