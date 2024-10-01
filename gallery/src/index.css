@@ -42,4 +42,49 @@
         letter-spacing: 2.15px;
         color: white;
     }
+
+    .year {
+        font-family: "Libre Baskerville", serif;
+        font-size: 100px;
+        color: #f3f3f3;
+        line-height: 100px;
+        font-weight: bold;
+        letter-spacing: 0;
+    }
+
+    .description {
+        font-family: "Libre Baskerville", serif;
+        font-size: 14px;
+        line-height: 28px;
+        color: #7d7d7d;
+        letter-spacing: 0;
+        font-weight: bold;
+    }
+
+    .source {
+        font-family: "Libre Baskerville", serif;
+        font-size: 9px;
+        letter-spacing: 1.93px;
+        color: #7d7d7d;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    .footerName {
+        font-family: "Libre Baskerville", serif;
+        font-size: 14px;
+        letter-spacing: 0;
+        font-weight: bold;
+    }
+    .footerArtist {
+        font-family: "Libre Baskerville", serif;
+        font-size: 10px;
+        letter-spacing: 0;
+        color: #7d7d7d;
+    }
+
+    .disabledButton {
+        filter: brightness(0) saturate(100%) invert(100%) sepia(1%)
+            saturate(1086%) hue-rotate(195deg) brightness(103%) contrast(69%);
+    }
 }

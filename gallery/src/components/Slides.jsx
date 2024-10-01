@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import data from "../data/data.json";
 import view from "../shared/icon-view-image.svg";
+import prev from "../shared/icon-back-button.svg";
+import next from "../shared/icon-next-button.svg";
 
 const Slides = () => {
     const location = useLocation();
     const { startIndex } = location.state || { startIndex: 0 };
     const [currentIndex, setCurrentIndex] = useState(startIndex);
+
+    const progress = ((currentIndex + 1) / data.length) * 100;
 
     const nextIndex = () => currentIndex + 1;
     const prevIndex = () => currentIndex - 1;
@@ -22,8 +26,8 @@ const Slides = () => {
     const item = data[currentIndex];
 
     return (
-        <div className="flex flex-col items-center p-6">
-            <div className="image-container relative">
+        <div className="min-h-screen flex flex-col items-center p-6 relative">
+            <div className="relative">
                 <img
                     src={item.images.gallery}
                     alt={item.name}
@@ -50,21 +54,51 @@ const Slides = () => {
                 </div>
             </div>
 
-            <div className="controls flex mt-[400px]">
-                <button
-                    onClick={handlePrev}
-                    className="mr-4 px-4 py-2 bg-gray-200 rounded"
-                    disabled={currentIndex === 0}
-                >
-                    Previous
-                </button>
-                <button
-                    onClick={handleNext}
-                    className="px-4 py-2 bg-gray-200 rounded"
-                    disabled={currentIndex === data.length - 1}
-                >
-                    Next
-                </button>
+            <div className="relative flex flex-col mt-[100px]">
+                <div className="absolute right-0 top-[-20px] -z-10">
+                    <p className="year">{item.year}</p>
+                </div>
+                <div className="mt-[54px]">
+                    <p className="description">{item.description}</p>
+                </div>
+                <a href={item.source} className="mt-10 source mb-16">
+                    GO TO SOURCE
+                </a>
+            </div>
+
+            <div className="fixed bottom-0 left-0 flex justify-between items-center w-full h-[72px] py-4 px-6 bg-white ">
+                <div
+                    className="absolute top-0 left-0 h-[1px] w-full"
+                    style={{
+                        background: `linear-gradient(to right, black 0%, black ${progress}%, #E5E5E5 ${progress}%, #E5E5E5 100%)`,
+                    }}
+                ></div>{" "}
+                <div className="flex flex-col">
+                    <p className="footerName">{item.name}</p>
+                    <p className="footerArtist">{item.artist.name}</p>
+                </div>
+                <div className="flex gap-6">
+                    <button
+                        className={`h-4 ${
+                            currentIndex === 0 ? "disabledButton" : ""
+                        }`}
+                        disabled={currentIndex === 0}
+                        onClick={handlePrev}
+                    >
+                        <img src={prev} alt="prev" className="h-4" />
+                    </button>
+                    <button
+                        className={`h-4 ${
+                            currentIndex === data.length - 1
+                                ? "disabledButton"
+                                : ""
+                        }`}
+                        disabled={currentIndex === data.length - 1}
+                        onClick={handleNext}
+                    >
+                        <img src={next} alt="next" className="h-4" />
+                    </button>
+                </div>
             </div>
         </div>
     );
