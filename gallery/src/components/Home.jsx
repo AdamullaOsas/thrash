@@ -39,7 +39,7 @@ const Home = () => {
                         {columnItems.map((item) => (
                             <div
                                 key={item.index}
-                                className="relative cursor-pointer"
+                                className="relative cursor-pointer group"
                                 onClick={() =>
                                     navigate("/Slides", {
                                         state: { startIndex: item.index },
@@ -51,6 +51,8 @@ const Home = () => {
                                     alt={item.name}
                                     className="w-full h-auto"
                                 />
+
+                                <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
 
                                 <div className="absolute bottom-0 left-0 w-full h-[170px] bg-gradient-to-t from-black/[0.84] to-transparent z-10"></div>
                                 <div className="absolute bottom-8 left-8 flex flex-col text-white z-20">

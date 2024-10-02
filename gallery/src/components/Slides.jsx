@@ -29,12 +29,12 @@ const Slides = () => {
     const item = data[currentIndex];
 
     return (
-        <div className="min-h-screen xl:min-h-0 flex flex-col lg:flex-row lg:justify-between  items-center md:items-start p-6 relative">
+        <div className="min-h-screen xl:min-h-0 flex flex-col lg:flex-row lg:justify-between  items-center md:items-start p-6 relative lg:gap-[400px] lg:max-w-[1360px] lg:mx-auto">
             {isOpen && (
-                <div className="min-h-screen w-full fixed flex items-center justify-center top-0 left-0 bg-black bg-opacity-85 z-50">
+                <div className="min-h-screen w-full fixed flex items-center justify-center inset-0 bg-black bg-opacity-85 z-50">
                     <div className="flex flex-col gap-10">
                         <p
-                            className="self-end close"
+                            className="self-end close hover:opacity-25 cursor-pointer"
                             onClick={() => setIsOpen(false)}
                         >
                             CLOSE
@@ -59,7 +59,7 @@ const Slides = () => {
                     className="w-full h-auto md:max-w-[475px]"
                 />
                 <div
-                    className="absolute bg-black bg-opacity-75 flex items-center justify-center gap-4 top-4 left-4 md:top-auto md:bottom-4 w-[152px] h-10"
+                    className="absolute bg-black bg-opacity-75 flex items-center justify-center gap-4 top-4 left-4 md:top-auto md:bottom-4 w-[152px] h-10 hover:bg-white hover:bg-opacity-25 transition-all duration-300 hover:cursor-pointer"
                     onClick={() => setIsOpen(true)}
                 >
                     <img src={view} alt="view" className=" size-[12px] " />
@@ -67,7 +67,7 @@ const Slides = () => {
                 </div>
 
                 <div
-                    className="absolute left-0 md:left-[243px] xl:left-[410px] md:top-0"
+                    className="absolute left-0 md:left-[243px] lg:left-[410px] md:top-0"
                     style={
                         breakpoint === "phone"
                             ? { top: "calc(100% - 54px)" }
@@ -88,14 +88,17 @@ const Slides = () => {
                     className="size-16 md:size-32 absolute bottom-[-118px] left-1 md:bottom-auto md:top-[238px] md:left-auto md:right-[-158px] lg:top-auto lg:bottom-[-20px]"
                 />
             </div>
-            <div className="md:w-full lg:max-w-[476px] xl:max-w-[350px] xl:mr-[165px]">
+            <div className="md:w-full lg:max-w-[476px] xl:max-w-[350px] lg:mr-[50px]">
                 <div className="relative flex flex-col md:w-full mt-[100px]">
                     <div className="absolute right-0 top-[-20px] -z-10 md:top-[-30px] xl:top-[-50px] md:right-auto md:left-0">
                         <p className="year md:yearTablet">{item.year}</p>
                     </div>
                     <div className="flex flex-col mt-[54px] md:max-w-[457px] md:self-center mb-16 md:mb-28">
                         <p className="description">{item.description}</p>
-                        <a href={item.source} className="mt-10 xl:mt-20 source">
+                        <a
+                            href={item.source}
+                            className="mt-10 xl:mt-20 source hover:text-black"
+                        >
                             GO TO SOURCE
                         </a>
                     </div>
@@ -116,7 +119,7 @@ const Slides = () => {
                     </div>
                     <div className="flex gap-6 md:gap-10">
                         <button
-                            className={`h-4 md:h-6 ${
+                            className={`h-4 md:h-6  hover:disabledButton ${
                                 currentIndex === 0 ? "disabledButton" : ""
                             }`}
                             disabled={currentIndex === 0}
@@ -125,7 +128,7 @@ const Slides = () => {
                             <img src={prev} alt="prev" className="h-4 md:h-6" />
                         </button>
                         <button
-                            className={`h-4 md:h-6 ${
+                            className={`h-4 md:h-6 hover:disabledButton ${
                                 currentIndex === data.length - 1
                                     ? "disabledButton"
                                     : ""
