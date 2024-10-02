@@ -29,7 +29,7 @@ const Home = () => {
     );
 
     return (
-        <div className="p-6">
+        <div className="p-6 flex justify-center">
             <div className="flex flex-row gap-x-10">
                 {columnsData.map((columnItems, columnIndex) => (
                     <div
