@@ -1,3 +1,76 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .timeKumbh {
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 80px;
+        letter-spacing: -4px;
+        font-weight: bold;
+    }
+
+    .timeRoboto {
+        font-family: "Roboto Slab", sans-serif;
+        font-size: 80px;
+        letter-spacing: 0px;
+        font-weight: bold;
+    }
+
+    .timeSpace {
+        font-family: "Space Mono", monospace;
+        font-size: 80px;
+        letter-spacing: -10px;
+    }
+
+    .pause {
+        font-size: 14px;
+        letter-spacing: 13.13px;
+        font-weight: bold;
+    }
+
+    .settings {
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 20px;
+        letter-spacing: 0;
+        font-weight: bold;
+    }
+
+    .timeSettings {
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 11px;
+        letter-spacing: 4.23px;
+        font-weight: bold;
+    }
+
+    .labelInput {
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 12px;
+        letter-spacing: 0px;
+        font-weight: bold;
+        opacity: 40%;
+        color: #1e213f;
+    }
+
+    .inputText {
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 14px;
+        letter-spacing: 0px;
+        font-weight: bold;
+        color: #1e213f;
+    }
+
+    .topDiv {
+        font-size: 12px;
+        font-weight: bold;
+        letter-spacing: 0;
+    }
+
+    .apply {
+        font-family: "Kumbh Sans", sans-serif;
+        font-size: 16px;
+        letter-spacing: 0px;
+        font-weight: bold;
+        color: white;
+    }
+}

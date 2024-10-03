@@ -1,73 +1,104 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import logo from "./assets/logo.svg";
+import settingsIcon from "./assets/icon-settings.svg";
 
-function CircularTimer({ totalTime }) {
-    const [timeLeft, setTimeLeft] = useState(totalTime);
-    const radius = 50;
-    const circumference = 2 * Math.PI * radius;
+import Modal from "./components/Modal";
+import CircularTimer from "./components/CircularTimer";
 
-    useEffect(() => {
-        if (timeLeft > 0) {
-            const timer = setInterval(() => {
-                setTimeLeft((prev) => prev - 1);
-            }, 1000);
-            return () => clearInterval(timer);
-        }
-    }, [timeLeft]);
+const App = () => {
+    const [showSettings, setShowSettings] = useState(false);
+    const [settings, setSettings] = useState({
+        pomodoro: 25,
+        shortBreak: 5,
+        longBreak: 15,
+        font: "Kumbh Sans",
+        color: "red",
+    });
 
-    const strokeDashoffset =
-        circumference - (timeLeft / totalTime) * circumference;
+    const colorClasses = {
+        red: "bg-red",
+        cyan: "bg-cyan",
+        purple: "bg-purple",
+    };
+
+    const [mode, setMode] = useState("pomodoro");
+
+    const handleSettingsChange = (newSettings) => {
+        setSettings(newSettings);
+    };
+
+    let selectedTime;
+
+    if (mode === "pomodoro") {
+        selectedTime = settings.pomodoro * 60;
+    } else if (mode === "shortBreak") {
+        selectedTime = settings.shortBreak * 60;
+    } else if (mode === "longBreak") {
+        selectedTime = settings.longBreak * 60;
+    }
 
     return (
-        <div className="flex justify-center items-center h-screen">
-            <div className="relative w-32 h-32">
-                <svg
-                    className="absolute top-0 left-0"
-                    width="100%"
-                    height="100%"
-                    viewBox="0 0 120 120"
-                >
-                    <circle
-                        cx="60"
-                        cy="60"
-                        r={radius}
-                        stroke="#e5e7eb"
-                        strokeWidth="10"
-                        fill="none"
-                    />
-                </svg>
-
-                <svg
-                    className="absolute top-0 left-0"
-                    width="100%"
-                    height="100%"
-                    viewBox="0 0 120 120"
-                >
-                    <circle
-                        cx="60"
-                        cy="60"
-                        r={radius}
-                        stroke="#3b82f6"
-                        strokeWidth="10"
-                        fill="none"
-                        strokeDasharray={circumference}
-                        strokeDashoffset={strokeDashoffset}
-                        strokeLinecap="round"
-                        className="transition-stroke-dashoffset duration-1000 ease-linear"
-                    />
-                </svg>
-
-                <div className="absolute inset-0 flex justify-center items-center text-2xl font-semibold text-gray-700">
-                    {timeLeft}s
+        <div className="min-h-screen w-full flex flex-col bg-blue relative">
+            <div className="flex flex-col gap-[45px] items-center mt-8 mb-12">
+                <img src={logo} alt="logo" />
+                <div className="flex max-w-[327px] w-full items-center justify-center h-[63px] rounded-[31.5px] p-2 bg-darkBlue text-grey">
+                    <button
+                        className={`flex-1 flex items-center justify-center rounded-[26.5px] h-full topDiv ${
+                            mode === "pomodoro"
+                                ? `${colorClasses[settings.color]} text-blue`
+                                : ""
+                        }`}
+                        onClick={() => setMode("pomodoro")}
+                        style={{ fontFamily: settings.font }}
+                    >
+                        pomodoro
+                    </button>
+                    <button
+                        className={`flex-1 flex items-center justify-center rounded-[26.5px] h-full topDiv ${
+                            mode === "shortBreak"
+                                ? `${colorClasses[settings.color]} text-blue`
+                                : ""
+                        }`}
+                        onClick={() => setMode("shortBreak")}
+                        style={{ fontFamily: settings.font }}
+                    >
+                        short break
+                    </button>
+                    <button
+                        className={`flex-1 flex items-center justify-center rounded-[26.5px] h-full topDiv ${
+                            mode === "longBreak"
+                                ? `${colorClasses[settings.color]} text-blue`
+                                : ""
+                        }`}
+                        onClick={() => setMode("longBreak")}
+                        style={{ fontFamily: settings.font }}
+                    >
+                        long break
+                    </button>
                 </div>
             </div>
-        </div>
-    );
-}
+            <CircularTimer
+                totalTime={selectedTime}
+                font={settings.font}
+                color={settings.color}
+            />
 
-export default function App() {
-    return (
-        <div>
-            <CircularTimer totalTime={60} /> {/* 60 seconds timer */}
+            <img
+                src={settingsIcon}
+                alt="settings"
+                className="absolute bottom-[48px] size-[28px] self-center cursor-pointer"
+                onClick={() => setShowSettings(true)}
+            />
+
+            {showSettings && (
+                <Modal
+                    settings={settings}
+                    onClose={() => setShowSettings(false)}
+                    onSave={handleSettingsChange}
+                />
+            )}
         </div>
     );
-}
+};
+
+export default App;
