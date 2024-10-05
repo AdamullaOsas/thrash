@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 function CircularTimer({ totalTime, font, color }) {
     const [timeLeft, setTimeLeft] = useState(totalTime);
@@ -36,34 +36,43 @@ function CircularTimer({ totalTime, font, color }) {
     const radius = 45;
     const circumference = 2 * Math.PI * radius;
 
-    useEffect(() => {
-        if (timeLeft > 0) {
-            const timer = setInterval(() => {
-                setTimeLeft((prev) => prev - 1);
-            }, 1000);
-            return () => clearInterval(timer);
-        }
-    }, [timeLeft]);
+    const timerRef = useRef(null);
 
     useEffect(() => {
-        if (!isPaused && timeLeft > 0) {
-            const timer = setInterval(() => {
-                setTimeLeft((prev) => prev - 1);
+        clearInterval(timerRef.current);
+        if (timeLeft > 0 && !isPaused) {
+            timerRef.current = setInterval(() => {
+                setTimeLeft((prevTimeLeft) => {
+                    if (prevTimeLeft <= 1) {
+                        clearInterval(timerRef.current);
+                        return 0;
+                    }
+                    return prevTimeLeft - 1;
+                });
             }, 1000);
-            return () => clearInterval(timer);
         }
-    }, [isPaused, timeLeft]);
+        return () => clearInterval(timerRef.current);
+    }, [timeLeft, isPaused]);
 
     const strokeDashoffset =
-        circumference - (timeLeft / totalTime) * circumference;
+        timeLeft > 0 ? circumference * (1 - timeLeft / totalTime) : 0;
+
+    const handleButtonClick = () => {
+        if (timeLeft === 0) {
+            setTimeLeft(totalTime);
+            setIsPaused(false);
+        } else {
+            setIsPaused(!isPaused);
+        }
+    };
 
     return (
         <div className="flex justify-center items-center ">
             <div
-                className="relative w-[300px] h-[300px] bg-gradient-to-br from-[#0E112A] to-[#2E325A] rounded-full flex items-center justify-center"
+                className="relative size-[300px] md:size-[410px] bg-gradient-to-br from-[#0E112A] to-[#2E325A] rounded-full flex items-center justify-center"
                 style={{ boxShadow: "-50px -50px 100px 0 #272C5A" }}
             >
-                <div className="size-[267.8px] bg-darkBlue top-0 left-0 rounded-full">
+                <div className="size-[267.8px] md:size-[366px] bg-darkBlue top-0 left-0 rounded-full">
                     <svg
                         className="absolute top-0 left-0"
                         width="100%"
@@ -109,15 +118,20 @@ function CircularTimer({ totalTime, font, color }) {
                     className="absolute inset-0 flex flex-col justify-center items-center text-almostWhite"
                     style={timerStyle}
                 >
-                    <div className={timerClassMap[font]}>
+                    <div className={`${timerClassMap[font]} md:text-[100px]`}>
                         {formatTime(timeLeft)}
                     </div>
+
                     <button
-                        className="pause max-w-[98px]"
-                        onClick={() => setIsPaused(!isPaused)}
+                        className="pause flex items-center justify-center"
+                        onClick={handleButtonClick}
                         style={timerStyle}
                     >
-                        {isPaused ? "Resume" : "Pause"}
+                        {timeLeft === 0
+                            ? "Restart"
+                            : isPaused
+                            ? "Resume"
+                            : "Pause"}
                     </button>
                 </div>
             </div>

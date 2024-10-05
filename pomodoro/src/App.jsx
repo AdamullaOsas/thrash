@@ -40,10 +40,10 @@ const App = () => {
     return (
         <div className="min-h-screen w-full flex flex-col bg-blue relative">
             <div className="flex flex-col gap-[45px] items-center mt-8 mb-12">
-                <img src={logo} alt="logo" />
-                <div className="flex max-w-[327px] w-full items-center justify-center h-[63px] rounded-[31.5px] p-2 bg-darkBlue text-grey">
+                <img src={logo} alt="logo" className="w-[118px] md:w-[156px]" />
+                <div className="flex max-w-[327px] md:max-w-[373px] w-full items-center justify-center h-[63px] rounded-[31.5px] p-2 bg-darkBlue text-grey">
                     <button
-                        className={`flex-1 flex items-center justify-center rounded-[26.5px] h-full topDiv ${
+                        className={`flex-1 flex items-center justify-center rounded-[26.5px] h-full topDiv md:text-[14px] ${
                             mode === "pomodoro"
                                 ? `${colorClasses[settings.color]} text-blue`
                                 : ""
@@ -54,7 +54,7 @@ const App = () => {
                         pomodoro
                     </button>
                     <button
-                        className={`flex-1 flex items-center justify-center rounded-[26.5px] h-full topDiv ${
+                        className={`flex-1 flex items-center justify-center rounded-[26.5px] h-full topDiv md:text-[14px] ${
                             mode === "shortBreak"
                                 ? `${colorClasses[settings.color]} text-blue`
                                 : ""
@@ -65,7 +65,7 @@ const App = () => {
                         short break
                     </button>
                     <button
-                        className={`flex-1 flex items-center justify-center rounded-[26.5px] h-full topDiv ${
+                        className={`flex-1 flex items-center justify-center rounded-[26.5px] h-full topDiv md:text-[14px] ${
                             mode === "longBreak"
                                 ? `${colorClasses[settings.color]} text-blue`
                                 : ""

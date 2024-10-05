@@ -50,25 +50,27 @@ const Modal = ({ settings, onClose, onSave }) => {
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-[#0A0C1C] bg-opacity-50">
-            <div className="bg-white py-6 rounded-[15px] w-full max-w-[327px] relative">
-                <div className="w-full border-b-[1px] border-[#E3E1E1] px-6 pb-6 flex justify-between items-center">
-                    <h1 className="settings text-darkBlue">Settings</h1>
+            <div className="bg-white py-6 rounded-[15px] w-full max-w-[327px] md:max-w-[540px] relative">
+                <div className="w-full border-b-[1px] border-[#E3E1E1] px-6 md:px-10 pb-6 flex justify-between items-center">
+                    <h1 className="settings md:text-[28px] text-darkBlue">
+                        Settings
+                    </h1>
                     <img
                         src={close}
                         alt="close"
-                        className=""
+                        className="transition-all hover:filter hover:brightness-0"
                         onClick={onClose}
                     />
                 </div>
                 <div className="px-6">
                     <div className="py-6 border-b-[1px] border-[#E3E1E1]">
-                        <p className="timeSettings text-darkBlue text-center mb-4">
+                        <p className="timeSettings text-darkBlue text-center mb-4 md:text-start md:mb-6 md:text-[13px]">
                             TIME (MINUTES)
                         </p>
-                        <div className="flex flex-col gap-2">
+                        <div className="flex flex-col gap-2 md:flex-row md:justify-between">
                             {inputs.map((input, index) => (
                                 <div
-                                    className="flex items-center justify-between relative"
+                                    className="flex items-center justify-between relative md:flex-col md:items-start md:gap-[10px]"
                                     key={index}
                                 >
                                     <label className="labelInput">
@@ -81,11 +83,12 @@ const Modal = ({ settings, onClose, onSave }) => {
                                         onChange={handleInputChange}
                                         className="w-[140px] h-10 outline-none bg-almostWhite rounded-[10px] px-4 py-3 inputText"
                                     />
-                                    <div className="flex flex-col gap-2 absolute right-4">
+                                    <div className="flex flex-col gap-2 absolute right-4 md:top-[38px]">
                                         <button>
                                             <img
                                                 src={arrowUp}
                                                 alt="arrow up"
+                                                className="transition-all hover:filter hover:brightness-0"
                                                 onClick={() =>
                                                     setLocalSettings(
                                                         (prevSettings) => ({
@@ -107,6 +110,7 @@ const Modal = ({ settings, onClose, onSave }) => {
                                             <img
                                                 src={arrowDown}
                                                 alt="arrow down"
+                                                className="transition-all hover:filter hover:brightness-0 "
                                                 onClick={() =>
                                                     setLocalSettings(
                                                         (prevSettings) => ({
@@ -125,8 +129,8 @@ const Modal = ({ settings, onClose, onSave }) => {
                             ))}
                         </div>
                     </div>
-                    <div className="py-6 border-b-[1px] border-[#E3E1E1] flex items-center flex-col">
-                        <p className="timeSettings text-darkBlue text-center mb-4">
+                    <div className="py-6 border-b-[1px] border-[#E3E1E1] flex items-center flex-col md:flex-row md:justify-between">
+                        <p className="timeSettings text-darkBlue text-center mb-4 md:mb-0 md:text-[13px]">
                             FONT
                         </p>
 
@@ -136,31 +140,39 @@ const Modal = ({ settings, onClose, onSave }) => {
                                     <button
                                         key={font}
                                         onClick={() => handleFontChange(font)}
-                                        className={`rounded-full size-10 flex items-center justify-center px-4 py-2 ${
+                                        className={`rounded-full size-10 flex items-center justify-center px-4 py-2 group transition-all relative ${
                                             localSettings.font === font
-                                                ? "bg-darkBlue text-almostWhite"
-                                                : "bg-[#EFF1FA] text-darkBlue"
+                                                ? "bg-darkBlue text-almostWhite font-bold"
+                                                : "bg-[#EFF1FA] text-darkBlue opacity-75"
                                         }`}
-                                        style={
-                                            ({ fontFamily: font },
-                                            { fontWeight: "bold" })
-                                        }
+                                        style={{ fontFamily: font }}
                                     >
                                         Aa
+                                        <span
+                                            className="absolute transition-opacity duration-300 ease-in-out group-hover:opacity-100 opacity-0"
+                                            style={{
+                                                boxShadow:
+                                                    "0 0 0 1px #EFF1FA, 0 0 0 4px transparent",
+                                                borderRadius: "9999px",
+                                                position: "absolute",
+                                                inset: "-4px",
+                                            }}
+                                        ></span>
                                     </button>
                                 )
                             )}
                         </div>
                     </div>
 
-                    <div className="py-6 flex items-center flex-col">
-                        <p className="timeSettings text-darkBlue text-center mb-4">
+                    <div className="py-6 flex items-center flex-col md:flex-row md:justify-between">
+                        <p className="timeSettings text-darkBlue text-center mb-4 md:mb-0 md:text-[13px]">
                             COLOR
                         </p>
                         <div className="flex space-x-4">
                             {["red", "cyan", "purple"].map((color) => (
                                 <button
-                                    className={`size-10 rounded-full bg-${color} flex items-center justify-center`}
+                                    key={color}
+                                    className={`size-10 relative rounded-full bg-${color} flex items-center justify-center transition-all group relative`}
                                     onClick={() => handleColorChange(color)}
                                 >
                                     <img
@@ -172,17 +184,28 @@ const Modal = ({ settings, onClose, onSave }) => {
                                                 : "hidden"
                                         }`}
                                     />
+                                    <span
+                                        className="absolute transition-opacity duration-300 ease-in-out group-hover:opacity-100 opacity-0"
+                                        style={{
+                                            boxShadow:
+                                                "0 0 0 1px #EFF1FA, 0 0 0 4px transparent",
+                                            borderRadius: "9999px",
+                                            position: "absolute",
+                                            inset: "-4px",
+                                        }}
+                                    ></span>
                                 </button>
                             ))}
                         </div>
                     </div>
 
-                    <div className="absolute z-10 bottom-[-27px] left-1/2 translate-x-[-50%]">
+                    <div className="absolute z-10 bottom-[-27px] left-1/2 translate-x-[-50%] group">
                         <button
-                            className="w-[140px] h-[53px] bg-red rounded-[26.5px] apply"
+                            className="w-[140px] h-[53px] bg-red rounded-[26.5px] apply relative overflow-hidden"
                             onClick={handleSave}
                         >
-                            Apply
+                            <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                            <span className="relative z-10">Apply</span>
                         </button>
                     </div>
                 </div>
