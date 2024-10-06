@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    * {
+        font-family: "Red Hat Text", sans-serif;
+    }
+
+    .text1 {
+        font-size: 40px;
+        line-height: 120%;
+        letter-spacing: 0px;
+        font-weight: bold;
+    }
+
+    .text2 {
+        font-size: 24px;
+        line-height: 125%;
+        letter-spacing: 0px;
+        font-weight: bold;
+    }
+
+    .text3 {
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: 0px;
+        font-weight: 600;
+    }
+
+    .text4 {
+        font-size: 14px;
+        line-height: 150%;
+        letter-spacing: 0px;
+    }
+
+    .text4Bold {
+        font-size: 14px;
+        line-height: 150%;
+        letter-spacing: 0px;
+        font-weight: 600;
+    }
+}
