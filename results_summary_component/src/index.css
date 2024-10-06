@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .yourResult {
+        font-family: "Hanken Grotesk", sans-serif;
+        font-size: 18px;
+        letter-spacing: 0px;
+        font-weight: bold;
+        color: #cac9ff;
+    }
+
+    .bigNumber {
+        font-family: "Hanken Grotesk", sans-serif;
+        font-size: 56px;
+        line-height: 72px;
+        letter-spacing: 0px;
+        font-weight: 800;
+        color: white;
+    }
+
+    .littleNumber {
+        font-family: "Hanken Grotesk", sans-serif;
+        font-size: 16px;
+        letter-spacing: 0px;
+        font-weight: 700;
+        opacity: 50%;
+        color: #cac9ff;
+    }
+
+    .great {
+        font-family: "Hanken Grotesk", sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        letter-spacing: 0px;
+    }
+
+    .desc {
+        font-family: "Hanken Grotesk", sans-serif;
+        font-size: 16px;
+        letter-spacing: 0px;
+        color: #cac9ff;
+        font-weight: 500;
+    }
+
+    .summary {
+        font-family: "Hanken Grotesk", sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+        color: #303b59;
+        letter-spacing: 0px;
+    }
+
+    .card {
+        font-family: "Hanken Grotesk", sans-serif;
+        font-size: 16px;
+        letter-spacing: 0px;
+        font-weight: 500;
+    }
+
+    .continue {
+        font-family: "Hanken Grotesk", sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        letter-spacing: 0px;
+    }
+}
