@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Result = () => {
-    const [open, setOpen] = useState(false);
+const Result = ({ calculatedMonthlyRepayment, totalRepayment }) => {
+    const open = calculatedMonthlyRepayment !== null;
 
     return (
         <>
-            {open ? (
+            {!open ? (
                 <div className="w-full py-8 px-6 bg-slate-900 flex flex-col gap-4 items-center">
                     <img
                         src="/images/illustration-empty.svg"
@@ -39,14 +39,16 @@ const Result = () => {
                                 Your monthly repayments
                             </p>
                             <h1 className="text1 text-lime sm:text-[56px]">
-                                £1,797.74
+                                £{calculatedMonthlyRepayment}
                             </h1>
                         </div>
                         <div className="relative z-10 flex flex-col gap-2 pt-4">
                             <p className="text4 text-slate-300">
                                 Total you'll repay over the term
                             </p>
-                            <h1 className="text2 text-white ">£539,322.94</h1>
+                            <h1 className="text2 text-white ">
+                                £{totalRepayment}
+                            </h1>
                         </div>
                     </div>
                 </div>
