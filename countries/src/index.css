@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    * {
+        font-family: "Nunito Sans", sans-serif;
+        color: #111517;
+    }
+
+    .mainMobile {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 800;
+        letter-spacing: 0px;
+    }
+
+    .modeMobile {
+        font-size: 12px;
+        letter-spacing: 0px;
+        font-weight: 600;
+    }
+}
