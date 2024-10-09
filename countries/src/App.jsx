@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Country from "./components/Country";
 import Navbar from "./components/Navbar";
+import { DarkModeProvider } from "./components/DarkModeContext";
 
 const AppProvider = () => {
     return (
@@ -18,9 +19,11 @@ const AppProvider = () => {
 
 const App = () => {
     return (
-        <Router>
-            <AppProvider />
-        </Router>
+        <DarkModeProvider>
+            <Router>
+                <AppProvider />
+            </Router>
+        </DarkModeProvider>
     );
 };
 export default App;
