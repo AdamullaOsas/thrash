@@ -11,8 +11,10 @@ const App = () => {
         useState(null);
     const [totalRepayment, setTotalRepayment] = useState(null);
     const [errors, setErrors] = useState({});
+    const [hasSubmitted, setHasSubmitted] = useState(false);
 
     const calculateRepayments = () => {
+        setHasSubmitted(true);
         setErrors({});
 
         let newErrors = {};
@@ -59,9 +61,20 @@ const App = () => {
         setTotalRepayment(totalRepayment);
     };
 
+    const handleClear = () => {
+        setMortgageAmount("");
+        setMortgageTerm("");
+        setInterestRate("");
+        setMortgageType("");
+        setErrors({});
+        setHasSubmitted(false);
+        setCalculatedMonthlyRepayment(null);
+        setTotalRepayment(null);
+    };
+
     return (
-        <div className="min-h-screen w-full bg-slate-100 sm:flex sm:items-center sm:justify-center">
-            <div className="bg-white max-w-[1008px] flex flex-col sm:flex-row">
+        <div className="min-h-screen w-full bg-slate-100 sm:flex sm:items-center sm:justify-center ">
+            <div className="bg-white max-w-[1008px] flex flex-col sm:flex-row sm:sm:rounded-[24px]">
                 <Calculator
                     mortgageAmount={mortgageAmount}
                     setMortgageAmount={setMortgageAmount}
@@ -73,7 +86,8 @@ const App = () => {
                     setMortgageType={setMortgageType}
                     calculateRepayments={calculateRepayments}
                     errors={errors}
-                    setErrors={setErrors}
+                    hasSubmitted={hasSubmitted}
+                    handleClear={handleClear}
                 />
                 <Result
                     calculatedMonthlyRepayment={calculatedMonthlyRepayment}

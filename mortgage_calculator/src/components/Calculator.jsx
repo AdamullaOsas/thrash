@@ -11,25 +11,16 @@ const Calculator = ({
     setMortgageType,
     calculateRepayments,
     errors,
-    setErrors,
+    hasSubmitted,
+    handleClear,
 }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         calculateRepayments();
     };
 
-    const handleClear = () => {
-        setMortgageAmount("");
-        setMortgageTerm("");
-        setInterestRate("");
-        setMortgageType("");
-        setErrors({});
-    };
-    console.log(errors);
-
-    const handleInputChange = (setter, fieldName) => (e) => {
+    const handleInputChange = (setter) => (e) => {
         setter(e.target.value);
-        setErrors((prevErrors) => ({ ...prevErrors, [fieldName]: "" }));
     };
 
     return (
@@ -50,15 +41,17 @@ const Calculator = ({
                         Mortgage Amount
                     </label>
                     <div
-                        className={`flex items-center w-full border-[1px] border-[#6B94A8] h-12 rounded-[4px] ${
-                            errors.mortgageAmount !== "" ? "border-red" : ""
+                        className={`flex items-center w-full border-[1px] h-12 rounded-[4px] ${
+                            hasSubmitted && errors.mortgageAmount
+                                ? "border-red"
+                                : "border-[#6B94A8]"
                         }`}
                     >
                         <span
-                            className={`h-full px-4 rounded-l-[4px] bg-slate-100 flex items-center ${
-                                errors.mortgageAmount !== ""
+                            className={`h-full px-4 rounded-l-[4px] flex items-center ${
+                                hasSubmitted && errors.mortgageAmount
                                     ? "bg-red text-white"
-                                    : ""
+                                    : "bg-slate-100"
                             }`}
                         >
                             £
@@ -68,39 +61,45 @@ const Calculator = ({
                             name="mortgageAmount"
                             className="w-full outline-none px-4 text3 tracking-[0%] text-slate-900"
                             value={mortgageAmount}
-                            onChange={handleInputChange(
-                                setMortgageAmount,
-                                "mortgageAmount"
-                            )}
+                            onChange={handleInputChange(setMortgageAmount)}
                         />
                     </div>
-                    {errors.mortgageAmount && (
+                    {hasSubmitted && errors.mortgageAmount && (
                         <p className="text-red text5 mt-1">
                             {errors.mortgageAmount}
                         </p>
                     )}
                 </div>
 
-                <div className="flex flex-col w-full">
+                <div className="flex flex-col w-full ">
                     <label className="text4 text-slate-700">
                         Mortgage Term
                     </label>
-                    <div className="flex items-center w-full border-[1px] border-[#6B94A8] h-12 rounded-[4px]">
+                    <div
+                        className={`flex items-center w-full border-[1px] h-12 rounded-[4px] ${
+                            hasSubmitted && errors.mortgageTerm
+                                ? "border-red"
+                                : "border-[#6B94A8]"
+                        }`}
+                    >
                         <input
                             type="text"
                             name="mortgageTerm"
                             className="w-full outline-none px-4 text3 tracking-[0%] text-slate-900"
                             value={mortgageTerm}
-                            onChange={handleInputChange(
-                                setMortgageTerm,
-                                "mortgageTerm"
-                            )}
+                            onChange={handleInputChange(setMortgageTerm)}
                         />
-                        <span className="h-full px-4 rounded-r-[4px] bg-slate-100 flex items-center text3 tracking-[0%] text-slate-700">
+                        <span
+                            className={`h-full px-4 rounded-r-[4px] flex items-center text3 tracking-[0%] ${
+                                hasSubmitted && errors.mortgageTerm
+                                    ? "bg-red text-white"
+                                    : "bg-slate-100 text-slate-700"
+                            }`}
+                        >
                             years
                         </span>
                     </div>
-                    {errors.mortgageTerm && (
+                    {hasSubmitted && errors.mortgageTerm && (
                         <p className="text-red text5 mt-1">
                             {errors.mortgageTerm}
                         </p>
@@ -111,22 +110,31 @@ const Calculator = ({
                     <label className="text4 text-slate-700">
                         Interest Rate
                     </label>
-                    <div className="flex items-center w-full border-[1px] border-[#6B94A8] h-12 rounded-[4px]">
+                    <div
+                        className={`flex items-center w-full border-[1px] h-12 rounded-[4px] ${
+                            hasSubmitted && errors.interestRate
+                                ? "border-red"
+                                : "border-[#6B94A8]"
+                        }`}
+                    >
                         <input
                             type="text"
                             name="interestRate"
                             className="w-full outline-none px-4 text3 tracking-[0%] text-slate-900"
                             value={interestRate}
-                            onChange={handleInputChange(
-                                setInterestRate,
-                                "interestRate"
-                            )}
+                            onChange={handleInputChange(setInterestRate)}
                         />
-                        <span className="h-full px-4 rounded-r-[4px] bg-slate-100 flex items-center text3 tracking-[0%] text-slate-700">
+                        <span
+                            className={`h-full px-4 rounded-r-[4px] flex items-center text3 tracking-[0%] ${
+                                hasSubmitted && errors.interestRate
+                                    ? "bg-red text-white"
+                                    : "bg-slate-100 text-slate-700"
+                            }`}
+                        >
                             %
                         </span>
                     </div>
-                    {errors.interestRate && (
+                    {hasSubmitted && errors.interestRate && (
                         <p className="text-red text5 mt-1">
                             {errors.interestRate}
                         </p>
@@ -140,14 +148,14 @@ const Calculator = ({
                     <div className="flex flex-col gap-3">
                         <div
                             onClick={() => setMortgageType("repayment")}
-                            className={`w-full rounded-[4px] border-[1px] px-4 py-3 flex gap-4 items-center cursor-pointer text-slate-900 font-bold ${
+                            className={`w-full rounded-[4px] border-[1px] px-4 py-3 flex gap-4 items-center cursor-pointer font-bold ${
                                 mortgageType === "repayment"
-                                    ? "border-lime bg-lime/25 "
+                                    ? "border-lime bg-lime/25 text-slate-900"
                                     : "border-[#6B94A8] text-slate-700"
                             }`}
                         >
                             <div
-                                className={`size-5 rounded-full border-2 flex-shrink-0  flex items-center justify-center text-slate-900 ${
+                                className={`size-5 rounded-full border-2 flex-shrink-0  flex items-center justify-center ${
                                     mortgageType === "repayment"
                                         ? "border-lime"
                                         : "border-[#6B94A8]"
@@ -166,14 +174,14 @@ const Calculator = ({
 
                         <div
                             onClick={() => setMortgageType("interest-only")}
-                            className={`w-full rounded-[4px] border-[1px] px-4 py-3 flex gap-4 items-center cursor-pointer text-slate-900 font-bold ${
+                            className={`w-full rounded-[4px] border-[1px] px-4 py-3 flex gap-4 items-center cursor-pointer font-bold ${
                                 mortgageType === "interest-only"
-                                    ? "border-lime bg-lime/25 "
+                                    ? "border-lime bg-lime/25 text-slate-900"
                                     : "border-[#6B94A8] text-slate-700"
                             }`}
                         >
                             <div
-                                className={`size-5 rounded-full border-2 flex-shrink-0 flex items-center justify-center text-slate-900 ${
+                                className={`size-5 rounded-full border-2 flex-shrink-0 flex items-center justify-center ${
                                     mortgageType === "interest-only"
                                         ? "border-lime"
                                         : "border-[#6B94A8]"
@@ -190,7 +198,7 @@ const Calculator = ({
                             Interest Only
                         </div>
                     </div>
-                    {errors.mortgageType && (
+                    {hasSubmitted && errors.mortgageType && (
                         <p className="text-red text5 mt-1">
                             {errors.mortgageType}
                         </p>

@@ -6,7 +6,7 @@ const Result = ({ calculatedMonthlyRepayment, totalRepayment }) => {
     return (
         <>
             {!open ? (
-                <div className="w-full py-8 px-6 bg-slate-900 flex flex-col gap-4 items-center">
+                <div className="w-full py-8 px-6 bg-slate-900 flex flex-col gap-4 items-center sm:rounded-[24px] sm:rounded-bl-[80px] sm:justify-center">
                     <img
                         src="/images/illustration-empty.svg"
                         alt="Empty illustration"
@@ -20,7 +20,7 @@ const Result = ({ calculatedMonthlyRepayment, totalRepayment }) => {
                     </p>
                 </div>
             ) : (
-                <div className="w-full py-8 px-6 bg-slate-900 flex flex-col gap-6 items-center">
+                <div className="w-full py-8 px-6 bg-slate-900 flex flex-col gap-6 items-center sm:rounded-[24px] sm:rounded-bl-[80px] sm:justify-center">
                     <div className="flex flex-col gap-4">
                         <h1 className="text2 text-white tracking-[0%]">
                             Your results
