@@ -2,7 +2,6 @@ import React from "react";
 import Search from "./Search";
 import Filter from "./Filter";
 import Card from "./Card";
-
 import data from "../data/data.json";
 
 const Home = () => {
@@ -14,7 +13,11 @@ const Home = () => {
             </div>
             <div className="px-10 flex flex-wrap gap-10 sm:gap-[75px] mt-8 justify-center ">
                 {data.map((country, index) => (
-                    <Card index={index} key={country.name} />
+                    <Card
+                        index={index}
+                        key={country.name}
+                        countryName={country.name}
+                    />
                 ))}
             </div>
         </div>

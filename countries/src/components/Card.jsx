@@ -1,11 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import data from "../data/data.json";
 
-const Card = ({ index }) => {
+const Card = ({ index, countryName }) => {
     const { flag, name, population, region, capital } = data[index];
+    const navigate = useNavigate();
+
+    const handleNavigation = () => {
+        navigate(`/${countryName}`);
+    };
 
     return (
-        <div className="w-64 bg-white dark:bg-[#2B3844] rounded-[5px] shadow-md overflow-hidden">
+        <div
+            onClick={handleNavigation}
+            className="w-64 bg-white dark:bg-[#2B3844] rounded-[5px] shadow-md overflow-hidden cursor-pointer hover:scale-105 transform transition duration-200"
+        >
             <img
                 src={flag}
                 alt={`${name} flag`}
