@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    * {
+        font-family: "Atkinson Hyperlegible", sans-serif;
+    }
+    .labelP {
+        font-size: 15px;
+        letter-spacing: 0px;
+        font-weight: bold;
+    }
+
+    .startButtons {
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 0px;
+    }
+}
