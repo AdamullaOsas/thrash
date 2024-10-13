@@ -6,7 +6,7 @@ const Filter = () => {
     return (
         <div className="relative w-52">
             <div
-                className="flex justify-between items-center px-6 h-12 bg-white dark:bg-[#2B3844] dark:text-white rounded-[5px] shadow-md cursor-pointer"
+                className="flex justify-between items-center px-6 h-12 bg-white dark:bg-[#2B3844] dark:text-white rounded-[5px] shadow-[0_2px_4px_rgba(0,0,0,0.0562)] cursor-pointer"
                 onClick={() => setOpenFilters(!openFilters)}
             >
                 <p className="searchMobile dark:text-white ">
@@ -19,7 +19,7 @@ const Filter = () => {
                 />
             </div>
             {openFilters && (
-                <div className="absolute top-full mt-1 w-full bg-white dark:bg-darkBlue dark:text-white rounded-[5px] shadow-md">
+                <div className="absolute top-full mt-1 w-full bg-white dark:bg-darkBlue dark:text-white rounded-[5px] shadow-[0_2px_4px_rgba(0,0,0,0.0562)] z-10">
                     {filters.map((filter) => (
                         <p
                             key={filter}

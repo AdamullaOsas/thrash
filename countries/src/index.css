@@ -40,4 +40,38 @@
         letter-spacing: 0px;
         font-weight: 600;
     }
+
+    .back {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 200;
+        letter-spacing: 0px;
+    }
+
+    .countryName {
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: 0px;
+    }
+
+    .countryP {
+        font-size: 14px;
+        line-height: 32px;
+        font-weight: 600;
+        letter-spacing: 0px;
+    }
+
+    .borderC {
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0px;
+        font-weight: 600;
+    }
+
+    .boxBorderC {
+        font-size: 12px;
+        line-height: auto;
+        letter-spacing: 0px;
+        font-weight: 200;
+    }
 }

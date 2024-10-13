@@ -13,7 +13,7 @@ const Card = ({ index, countryName }) => {
     return (
         <div
             onClick={handleNavigation}
-            className="w-64 bg-white dark:bg-[#2B3844] rounded-[5px] shadow-md overflow-hidden cursor-pointer hover:scale-105 transform transition duration-200"
+            className="w-64 bg-white dark:bg-[#2B3844] rounded-[5px] shadow-[0_2px_4px_rgba(0,0,0,0.0562)] overflow-hidden cursor-pointer hover:scale-105 transform transition duration-200"
         >
             <img
                 src={flag}
