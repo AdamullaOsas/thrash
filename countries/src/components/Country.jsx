@@ -134,7 +134,9 @@ const Country = () => {
                                     </div>
                                 ))
                             ) : (
-                                <span>No border countries</span>
+                                <span className="dark:text-white">
+                                    No border countries
+                                </span>
                             )}
                         </div>
                     </div>
