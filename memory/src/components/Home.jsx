@@ -1,7 +1,8 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+    const navigate = useNavigate();
     const [theme, setTheme] = useState("numbers");
     const [players, setPlayers] = useState(1);
     const [gridSize, setGridSize] = useState(4);
@@ -88,7 +89,18 @@ const Home = () => {
                         </button>
                     </div>
                 </div>
-                <button className="startButtons text-[#FCFCFC] bg-[#FDA214] hover:bg-[#FFB84A] rounded-[26px] h-12 sm:text-[32px] sm:h-[70px] sm:rounded-[35px] mt-2">
+                <button
+                    className="startButtons text-[#FCFCFC] bg-[#FDA214] hover:bg-[#FFB84A] rounded-[26px] h-12 sm:text-[32px] sm:h-[70px] sm:rounded-[35px] mt-2"
+                    onClick={() => {
+                        if (players === 1) {
+                            navigate("/single", { state: { theme, gridSize } });
+                        } else {
+                            navigate("/multi", {
+                                state: { theme, players, gridSize },
+                            });
+                        }
+                    }}
+                >
                     Start Game
                 </button>
             </div>
