@@ -93,10 +93,10 @@ const Home = () => {
                     className="startButtons text-[#FCFCFC] bg-[#FDA214] hover:bg-[#FFB84A] rounded-[26px] h-12 sm:text-[32px] sm:h-[70px] sm:rounded-[35px] mt-2"
                     onClick={() => {
                         if (players === 1) {
-                            navigate("/single", { state: { theme, gridSize } });
+                            navigate("/single", { state: { gridSize } });
                         } else {
                             navigate("/multi", {
-                                state: { theme, players, gridSize },
+                                state: { players, gridSize },
                             });
                         }
                     }}
