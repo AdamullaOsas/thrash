@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useIsMobile from "../hooks/isMobile";
 
@@ -25,7 +25,7 @@ const Single = () => {
 
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const shuffleCards = () => {
+    const shuffleCards = useCallback(() => {
         const numbers = Array.from({ length: totalPairs }, (_, i) => i);
         const shuffledNumbers = [...numbers, ...numbers]
             .sort(() => Math.random() - 0.5)
@@ -35,7 +35,7 @@ const Single = () => {
         setFirstChoice(null);
         setSecondChoice(null);
         setMatchedPairs(0);
-    };
+    }, [totalPairs]);
 
     const handleChoice = (card) => {
         firstChoice ? setSecondChoice(card) : setFirstChoice(card);
@@ -76,7 +76,7 @@ const Single = () => {
 
     useEffect(() => {
         shuffleCards();
-    }, [gridSize]);
+    }, [gridSize, shuffleCards]);
 
     const handleRestart = () => {
         shuffleCards();
